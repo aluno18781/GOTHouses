@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace GOTHouses.Models
-{
-    public class Characters
+namespace GOTHouses.APIgot
+{ 
+    public class GetCharacters
     {
-        [Key]
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -21,10 +18,6 @@ namespace GOTHouses.Models
         public string Photo { get; set; }
 
         public string Video { get; set; }
-
-        [ForeignKey("House")]
-        public int HouseFK { get; set; }
-        public virtual Houses House { get; set; }
 
     }
 }

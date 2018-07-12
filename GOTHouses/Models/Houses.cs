@@ -8,6 +8,12 @@ namespace GOTHouses.Models
 {
     public class Houses
     {
+        public Houses()
+        {
+            CharactersList = new HashSet<Characters>();
+
+        }
+
         [Key]
         public int Id { get; set; }
 
@@ -16,6 +22,9 @@ namespace GOTHouses.Models
         public string Description { get; set; }
 
         public string Symbol { get; set; }
-        
+
+
+        public virtual ICollection<Characters> CharactersList { get; set; }
+
     }
 }
