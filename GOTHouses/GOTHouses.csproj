@@ -156,6 +156,8 @@
   <ItemGroup>
     <Compile Include="APIgot\GetCharacters.cs" />
     <Compile Include="APIgot\GetHouses.cs" />
+    <Compile Include="APIgot\GetSingleCharacter.cs" />
+    <Compile Include="APIgot\GetSingleHouse.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -174,10 +176,12 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Mycss.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="index.html" />
     <Content Include="JavaScript\dataApi.js" />
     <Content Include="JavaScript\logic.js" />
     <Content Include="Scripts\bootstrap.js" />

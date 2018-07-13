@@ -15,18 +15,18 @@ namespace GOTHouses.Controllers
 {
     public class HousesController : ApiController
     {
-        private readonly GOTHousesDB _appDB = new GOTHousesDB();
+        private readonly GOTHousesDB Db = new GOTHousesDB();
 
         [HttpGet, Route("api/houses")]
         public IHttpActionResult GetHouses()
         {
-            var houses = _appDB.Houses
+            var houses = Db.Houses
                 .Select(h => new GetHouses
                 {
                     Id = h.Id,
                     Name = h.Name,
                     Symbol = h.Symbol,
-                    Description= h.Description
+                    Description= h.Description,
 
                 })
                 .OrderBy(h => h.Id)
@@ -40,8 +40,31 @@ namespace GOTHouses.Controllers
             return Ok(houses);
         }
 
-
         [HttpGet, Route("api/houses/{id:int}")]
+        public IHttpActionResult GetHouses(int? id)
+        {
+            var houses = Db.Houses
+                .Where(h => h.Id == id)
+                .Select(h => new GetSingleHouse
+                {
+                    Id = h.Id,
+                    Name = h.Name,
+                    Symbol = h.Symbol,
+                    Description = h.Description,
+
+                })
+                .FirstOrDefault();
+
+            if (houses == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(houses);
+        }
+
+
+        [HttpGet, Route("api/houses/{id:int}/characters")]
         public IHttpActionResult GetCharacters(int? id)
         {
 
@@ -50,19 +73,50 @@ namespace GOTHouses.Controllers
                 return BadRequest();
             }
 
-            var character = _appDB.Characters
-                .Where(c => c.Id == id)
+            var character = Db.Characters
+                .Where(c => c.HouseFK == id)
                 .Select(c => new GetCharacters
                 {
                     Id = c.Id,
                     Name = c.Name,
-                    Family = c.Family,                        
+                    Family = c.Family,
                     Photo = c.Photo,
-                    Video  = c.Video,
+                    Video = c.Video,
                     Description = c.Description
-                    
+
                 })
-                .FirstOrDefault();
+               .OrderBy(c => c.Id)
+               .ToList();
+
+            if (character == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(character);
+        }
+
+        [HttpGet, Route("api/characters/{id:int}")]
+        public IHttpActionResult GetSingleCharacter(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            var character = Db.Characters
+                .Where(c => c.Id == id)
+                .Select(c => new GetSingleCharacter
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    Family = c.Family,
+                    Photo = c.Photo,
+                    Video = c.Video,
+                    Description = c.Description
+
+                })
+               .FirstOrDefault();
 
             if (character == null)
             {

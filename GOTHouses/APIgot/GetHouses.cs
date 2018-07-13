@@ -16,7 +16,7 @@ namespace GOTHouses.APIgot
 
         public string Symbol { get; set; }
 
-        public virtual ICollection<Characters> CharactersList { get; set; }
+       /* public virtual ICollection<Characters> CharactersList { get; set; }
 
         public class Characters
         {
@@ -31,6 +31,6 @@ namespace GOTHouses.APIgot
             public string Photo { get; set; }
 
             public string Video { get; set; }
-        }
+        }*/
     }
 }

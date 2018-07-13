@@ -1,9 +1,7 @@
 ﻿//gets  the valor getHouses
 function getHouses() {
-
-    var houses = "http://localhost:26012/api/houses";
-
-    return fetch(houses, { headers: { Accept: 'application/json' } })
+    
+    return fetch("api/houses", { headers: { Accept: 'application/json' } })
         .then(function (resposta) {
             //debugger;
             if (resposta.status === 200) {
@@ -15,13 +13,37 @@ function getHouses() {
             }
         });
 }
+function getSingleHouse(houseId) {
+
+    return fetch("api/houses/" + houseId, { headers: { Accept: 'application/json' } })
+        .then(function (resposta) {
+            //debugger;
+            if (resposta.status === 200) {
+                return resposta.json();
+            } else {
+                return Promise.reject(new Error("Erro ao obter categorias"));
+            }
+        });
+}
 
 
-function getCharacters(charId) {
 
-    var character = "http://localhost:26012/api/houses/" + charId;
+function getCharacters(houseId) {
 
-    return fetch(character, { headers: { Accept: 'application/json' } })
+    return fetch("api/houses/" + houseId + "/characters", { headers: { Accept: 'application/json' } })
+        .then(function (resposta) {
+            //debugger;
+            if (resposta.status === 200) {
+                return resposta.json();
+            } else {
+                return Promise.reject(new Error("Erro ao obter categorias"));
+            }
+        });
+}
+
+function getSingleCharacter(charId) {
+
+    return fetch("api/characters/" + charId , { headers: { Accept: 'application/json' } })
         .then(function (resposta) {
             //debugger;
             if (resposta.status === 200) {
