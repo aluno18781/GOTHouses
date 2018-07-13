@@ -31,7 +31,7 @@ namespace GOTHouses.Migrations
 
             };
 
-            house.ForEach(pp => context.Houses.AddOrUpdate(p => p.Id, pp));
+            house.ForEach(hh => context.Houses.AddOrUpdate(h => h.Id, hh));
             context.SaveChanges();
 
             var character = new List<Characters>
@@ -52,7 +52,7 @@ namespace GOTHouses.Migrations
                 new Characters{Id=13, Name="Yara Greyjoy", Family="Greyjoy", HouseFK=4, Photo="https://vignette4.wikia.nocookie.net/gameofthrones/images/2/2e/Yara_Greyjoy_infobox.png/revision/latest?cb=20120621181641", Video="https://youtube.com/watch?v=K_prsoAhcZY",  Description="Yara is the only daughter of Lord Balon and his wife, Lady Alannys of House Harlaw. Balon is the head of House Greyjoy and the Lord of the Iron Islands. The Iron Islands are one of the constituent regions of the Seven Kingdoms, and House Greyjoy is one of the Great Houses of the realm. House Greyjoy rules the region from their seat at Pyke, and Balon also holds the title Lord Reaper of Pyke. Yara was born and raised at Pyke. She was Balon and Alannys's third child after Rodrik and Maron. She also has a younger brother, Theon. Eight years before the start of the series, Balon rose in rebellion against the Iron Throne and was defeated in a bloody war. Balon's two older sons were killed and Theon was taken by Lord Eddard Stark as a hostage for Balon's good behavior and obedience. With Yara as Balon's only remaining child in the Iron Islands, he raised her as a surrogate son, encouraging her to become a reaver in her own right, which is unusual for women in the patriarchal culture of the Ironborn. She is a fierce warrior and commands her own longship, to the disquiet of some of the Ironborn who hold that women should not fight or command men in battle."},
 
             };
-            character.ForEach(pp => context.Characters.AddOrUpdate(p => p.Id, pp));
+            character.ForEach(cc => context.Characters.AddOrUpdate(c => c.Id, cc));
             context.SaveChanges();
         }
     }
