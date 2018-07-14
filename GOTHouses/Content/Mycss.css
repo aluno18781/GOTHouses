@@ -1,7 +1,65 @@
 ﻿body {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 15px;
+    max-height: inherit;
+    max-width: inherit;
+    background-color: black;
+}
+
+#houses {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top:100px;
+}
+
+
+.divHouse{
+    text-align:center;
 
 }
+
+.img-House:hover {
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    
+}
+
+.navbar-brand > #logo{
+    width: 300px;
+    margin-top:0px;
+    
+}
+
+.navbar-inverse {
+    background-image: url("https://www.colourbox.com/preview/7218188-dragon-scales.jpg");
+}
+
+
+h3 {
+    color: white;
+    font-family: Algerian;
+}
+
+h3:hover {
+        transform: scale(1);
+        transition: all 0.3s ease-in-out 0.1s;
+}
+
 
 .hide{
     display:none !important ;
 }
+
+.action-button{
+    margin-top: 10px;
+    font-size:30px;
+    font-family:Algerian;
+
+}
+    .action-button.hover {
+        color: #cccccc;
+    }
+
