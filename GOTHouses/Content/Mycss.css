@@ -4,7 +4,9 @@
     margin-top: 15px;
     max-height: inherit;
     max-width: inherit;
-    background-color: black;
+    background-image: url("https://cabanadoleitor.com.br/wp-content/uploads/2017/07/Game-of-Thrones-kdsngkf.jpg");
+    background-size: cover;
+   
 }
 
 #houses {
@@ -12,20 +14,27 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-top:100px;
+    margin-top:30px;
+    background-size:cover;
 }
 
 
-.divHouse{
-    text-align:center;
-
+.divHouse {
+    text-align: center;
+    margin: 8px 8px 8px 8px;
+    transition: transform .2s;
+    color: white;
+    -webkit-text-stroke: 0.7px black;
+    font-family: Algerian;
+    font-size: 27px;
 }
 
-.img-House:hover {
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);
-    
-}
+    .divHouse:hover {
+        -ms-transform: scale(1.05);
+        transform: scale(1.05);
+    }
+
+
 
 .navbar-brand > #logo{
     width: 300px;
@@ -41,11 +50,9 @@
 h3 {
     color: white;
     font-family: Algerian;
-}
-
-h3:hover {
-        transform: scale(1);
-        transition: all 0.3s ease-in-out 0.1s;
+    font-size: 27px;
+    
+    
 }
 
 
@@ -53,13 +60,34 @@ h3:hover {
     display:none !important ;
 }
 
-.action-button{
+.action-button {
     margin-top: 10px;
-    font-size:30px;
-    font-family:Algerian;
+    font-size: 30px;
+    font-family: Algerian;
 
 }
-    .action-button.hover {
-        color: #cccccc;
+    .action-button:hover {
+        -ms-transform: scale(1.05);
+        transform: scale(1.05);
+        color:white;
     }
 
+
+
+#singleHouse {
+    -webkit-columns: 100px 2;
+    -webkit-column-gap:10px;
+}
+    #singleHouse > img {
+        
+        height: 300px;
+    }
+
+
+p {
+    margin-top: 10px;
+    border: 2px solid #e6e6e6;
+    background-color: #e6e6e6;
+    border-radius: 5px;
+    text-align:justify;
+}

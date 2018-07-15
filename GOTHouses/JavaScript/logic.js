@@ -52,7 +52,12 @@ function showHouses(houses) {
 
         divHouses.appendChild(divHouseContainer);
         
-
+        houseSymbol.setAttribute('data-idHouse', house.Id);
+        houseSymbol.onclick = getId => {
+            var idHouse = getId.target.getAttribute('data-idHouse', house.Id);
+            screenSingleHouse(idHouse);
+            houseToSingleHouse();
+        }
 
         houseName.setAttribute('data-idHouse', house.Id);
         //funtion que vai abrir a casa com as respectivas personagens
@@ -95,7 +100,7 @@ async function showSingleHouse(houses) {
             charPhoto.src = character.Photo;
             divSingleHouse.appendChild(charPhoto);
             
-            var charName = document.createElement("h5");
+            var charName = document.createElement("h4");
             charName.textContent = character.Name;
             divSingleHouse.appendChild(charName);
 
