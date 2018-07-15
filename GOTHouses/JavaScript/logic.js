@@ -74,7 +74,8 @@ function showHouses(houses) {
 }
 
 async function showSingleHouse(houses) {
-    var divSingleHouse = document.getElementById("singleHouse");
+
+        var divSingleHouse = document.getElementById("singleHouse");
 
 
         var houseName = document.createElement("h3");
@@ -93,24 +94,41 @@ async function showSingleHouse(houses) {
         //permite receber o array de characters 
         let array = await getCharacterByHouseID(houses.Id);
         console.log(array);
+
+        
+
         for (var i = 0; i < array.length; i++) {
             var character = array[i];
 
-            var charPhoto = document.createElement("img");
-            charPhoto.src = character.Photo;
-            divSingleHouse.appendChild(charPhoto);
-            
-            var charName = document.createElement("h4");
-            charName.textContent = character.Name;
-            divSingleHouse.appendChild(charName);
+            var charWithPhoto = document.createElement("div");
+            charWithPhoto.className = "charWithPhoto";
 
-            charName.setAttribute('data-idChar', character.Id);
+            var charPhoto = document.createElement("img");
+            charPhoto.className = "image";
+            charPhoto.src = character.Photo;
+            charWithPhoto.appendChild(charPhoto);
+
+            var middle = document.createElement("div");
+            middle.className = "middle";
+
+
+            var charName = document.createElement("text");
+            charName.className = "text";
+
+            charName.textContent = character.Name;
+            middle.appendChild(charName);
+
+            charWithPhoto.appendChild(middle);
+            divSingleHouse.appendChild(charWithPhoto);
+            
+            charPhoto.setAttribute('data-idChar', character.Id);
             //funtion que vai abrir a role com os respectivos heroes
-            charName.onclick = getId => {
+            charPhoto.onclick = getId => {
                 var idChar = getId.target.getAttribute('data-idChar', character.Id);
                 screenSingleCharacter(idChar);
                 singleHouseToCharacter();
             }
+            
 
         }
         

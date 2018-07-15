@@ -75,19 +75,57 @@ h3 {
 
 
 #singleHouse {
-    -webkit-columns: 100px 2;
-    -webkit-column-gap:10px;
+    background-size:cover;
 }
-    #singleHouse > img {
-        
-        height: 300px;
-    }
 
+
+.charWithPhoto {
+    position:relative;
+    height:350px;
+    width:220px;
+}
+
+.image {
+    
+    opacity: 1;
+    display: block;
+    height: 100%;
+    width: 100%;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+}
+
+.charWithPhoto:hover .image {
+    opacity: 0.8;
+}
+
+.charWithPhoto:hover .middle {
+    opacity: 1;
+}
+
+.text { 
+    color: white;
+    font-size: 20px;
+    text-align:center;
+}
 
 p {
+    position: absolute;
+    top: 17%;
+    left: 15%;
     margin-top: 10px;
     border: 2px solid #e6e6e6;
     background-color: #e6e6e6;
     border-radius: 5px;
-    text-align:justify;
+    text-align: justify;
+    width:80%
 }
