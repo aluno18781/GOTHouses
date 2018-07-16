@@ -75,31 +75,36 @@ function showHouses(houses) {
 
 async function showSingleHouse(houses) {
 
-        var divSingleHouse = document.getElementById("singleHouse");
+        
+    var divSingleHouse = document.getElementById("singleHouse");
 
+    var divHouseContainer = document.createElement("div");
+    divHouseContainer.className = "divHouseSingle";
 
         var houseName = document.createElement("h3");
         houseName.textContent = houses.Name;
-        divSingleHouse.appendChild(houseName);
+        divHouseContainer.appendChild(houseName);
     
         var houseSymbol = document.createElement("img");
         houseSymbol.src = houses.Symbol;
         houseSymbol.className = "img-House";
-        divSingleHouse.appendChild(houseSymbol);
+        divHouseContainer.appendChild(houseSymbol);
 
+        divSingleHouse.appendChild(divHouseContainer);
         var houseDescrip = document.createElement("p");
+        
         houseDescrip.textContent = houses.Description;
         divSingleHouse.appendChild(houseDescrip);
 
         //permite receber o array de characters 
         let array = await getCharacterByHouseID(houses.Id);
-        console.log(array);
+     
 
         
 
         for (var i = 0; i < array.length; i++) {
             var character = array[i];
-
+            
             var charWithPhoto = document.createElement("div");
             charWithPhoto.className = "charWithPhoto";
 
@@ -129,7 +134,6 @@ async function showSingleHouse(houses) {
                 singleHouseToCharacter();
             }
             
-
         }
         
     
@@ -156,15 +160,23 @@ async function showSingleHouse(houses) {
 function showSingleCharacter(charId) {
     var divSingleCharacter = document.getElementById("singleCharacter");
 
-    var charName = document.createElement("h5");
+    var singleCharWithPhoto = document.createElement("div");
+    singleCharWithPhoto.className = "singleCharWithPhoto";
+
+    var charName = document.createElement("h3");
+    charName.className = "singleName";
     charName.textContent = charId.Name;
-    divSingleCharacter.appendChild(charName);
+    singleCharWithPhoto.appendChild(charName);
 
     var charPhoto = document.createElement("img");
+    charPhoto.className = "singlePhoto";
     charPhoto.src = charId.Photo;
-    divSingleCharacter.appendChild(charPhoto);
+    singleCharWithPhoto.appendChild(charPhoto);
+
+    divSingleCharacter.appendChild(singleCharWithPhoto);
 
     var charDescrip = document.createElement("p");
+    charDescrip.className = "charDescrip";
     charDescrip.textContent = charId.Description;
     divSingleCharacter.appendChild(charDescrip);
 

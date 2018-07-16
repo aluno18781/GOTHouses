@@ -75,24 +75,30 @@ h3 {
 
 
 #singleHouse {
-    background-size:cover;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-size: cover;
 }
 
 
 .charWithPhoto {
     position:relative;
+    margin-top:4%;
     height:350px;
     width:220px;
+
 }
 
 .image {
-    
+    float:left;
     opacity: 1;
     display: block;
     height: 100%;
     width: 100%;
     transition: .5s ease;
     backface-visibility: hidden;
+    padding: 5px 5px 5px 5px;
 }
 .middle {
     transition: .5s ease;
@@ -118,14 +124,65 @@ h3 {
     text-align:center;
 }
 
+.divHouseSingle {
+    position:relative;
+    top:10%;
+    height:250px;
+    text-align: left;
+    margin: 8px 8px 8px 8px;
+    
+}
+.divHouseSingle > h3{
+    color:black;
+    font-size: 30px;
+}
+.divHouseSingle > .img-House{
+    height:100%
+}
+
 p {
-    position: absolute;
-    top: 17%;
-    left: 15%;
-    margin-top: 10px;
+    margin-top: -11%;
+    position: relative;
+    justify-content: center;
     border: 2px solid #e6e6e6;
     background-color: #e6e6e6;
     border-radius: 5px;
     text-align: justify;
-    width:80%
+    margin-left: 15%;
+    max-height: max-content;
+}
+
+.singleCharWithPhoto{
+    height: 350px;
+    width:240px;
+}
+
+.singleCharWithPhoto > .singlePhoto{
+    height:100%;
+    width:100%;
+}
+
+.singleCharWithPhoto > h3{
+    color:black;
+    font-size:30px;
+}
+
+    #singleCharacter > p{
+        margin-top:-15%;
+        max-height:max-content; 
+    }
+    
+    
+    
+    iframe {
+        width: 600px;
+        height: 340px;
+        margin-left: 30%;
+    }
+
+#singleCharacter {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-size: cover;
 }
