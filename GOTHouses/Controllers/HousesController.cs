@@ -26,7 +26,7 @@ namespace GOTHouses.Controllers
                     Id = h.Id,
                     Name = h.Name,
                     Symbol = h.Symbol,
-                    Description= h.Description,
+                    Description = h.Description,
 
                 })
                 .OrderBy(h => h.Id)

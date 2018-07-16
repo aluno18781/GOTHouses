@@ -6,18 +6,11 @@
 
 function init() {
     screenHouses();
-    //screenSingleHouse(1);
-    //screenCharacters(1);
-    //screenSingleCharacter(charId);
 }
 
-//serve para esconder o div
-//divHouses.classList.add("hide");
-
-//serve para mostrar o div
-//divHouses.classList.remove("hide");
 
 
+//função que permite transitar do div "houses" para o div "singleHouse" atribuindo a class hide ao div "houses" e removendo a mesma class ao div "singleHouse"
 function houseToSingleHouse() {
     var divHouses = document.getElementById("houses");
     var divSingleHouse = document.getElementById("singleHouse");
@@ -25,6 +18,7 @@ function houseToSingleHouse() {
     divSingleHouse.classList.remove("hide");
 }
 
+//função que permite transitar do div "singleHouse" para o div "singleCharacter" atribuindo a class hide ao div "singleHoues" e removendo a mesma class ao div "singleCharacter"
 function singleHouseToCharacter() {
     var divSingleHouse = document.getElementById("singleHouse");
     var divSingleCharacter = document.getElementById("singleCharacter");
@@ -33,25 +27,32 @@ function singleHouseToCharacter() {
 }
 
 
-
+//função para mostrar todas as casa
 function showHouses(houses) {
     for (var i = 0; i < houses.length; i++) {
         var house = houses[i];
 
+        //div que recebe todas as fotos e nomes das casas dentro do div "divHouseContainer"
+        var divHouses = document.getElementById("houses");
+
+        //contentor que recebe o nome e a foto de uma casa
         var divHouseContainer = document.createElement("div");
         divHouseContainer.className = "divHouse";
-        var divHouses = document.getElementById("houses");
+
+
         var houseName = document.createElement("h3");
         houseName.textContent = house.Name;
         divHouseContainer.appendChild(houseName);
 
-         var houseSymbol = document.createElement("img");
+        var houseSymbol = document.createElement("img");
         houseSymbol.src = house.Symbol;
         houseSymbol.className = "img-House";
         divHouseContainer.appendChild(houseSymbol);
 
+        //envia o divHouseContainer para dentro do divHouses
         divHouses.appendChild(divHouseContainer);
-        
+
+        //função que permite abrir o div de uma só casa através do clique no nome desta
         houseSymbol.setAttribute('data-idHouse', house.Id);
         houseSymbol.onclick = getId => {
             var idHouse = getId.target.getAttribute('data-idHouse', house.Id);
@@ -60,103 +61,89 @@ function showHouses(houses) {
         }
 
         houseName.setAttribute('data-idHouse', house.Id);
-        //funtion que vai abrir a casa com as respectivas personagens
+        //função que permite abrir o div de uma só casa através do clique na imagem desta
         houseName.onclick = getId => {
             var idHouse = getId.target.getAttribute('data-idHouse', house.Id);
             screenSingleHouse(idHouse);
             houseToSingleHouse();
         }
 
-        //apresentar cada fotografia de cada categoria
-       
     }
-    
+
 }
 
 async function showSingleHouse(houses) {
 
-        
+    //div que ira conter toda a informação da casa
     var divSingleHouse = document.getElementById("singleHouse");
 
+    // div que recebe o nome e imagem da casa
     var divHouseContainer = document.createElement("div");
     divHouseContainer.className = "divHouseSingle";
 
-        var houseName = document.createElement("h3");
-        houseName.textContent = houses.Name;
-        divHouseContainer.appendChild(houseName);
-    
-        var houseSymbol = document.createElement("img");
-        houseSymbol.src = houses.Symbol;
-        houseSymbol.className = "img-House";
-        divHouseContainer.appendChild(houseSymbol);
+    var houseName = document.createElement("h3");
+    houseName.textContent = houses.Name;
+    divHouseContainer.appendChild(houseName);
 
-        divSingleHouse.appendChild(divHouseContainer);
-        var houseDescrip = document.createElement("p");
-        
-        houseDescrip.textContent = houses.Description;
-        divSingleHouse.appendChild(houseDescrip);
+    var houseSymbol = document.createElement("img");
+    houseSymbol.src = houses.Symbol;
+    houseSymbol.className = "img-House";
+    divHouseContainer.appendChild(houseSymbol);
 
-        //permite receber o array de characters 
-        let array = await getCharacterByHouseID(houses.Id);
-     
+    //envia o divHouseContainer para dentro do divSingleHouse
+    divSingleHouse.appendChild(divHouseContainer);
+    var houseDescrip = document.createElement("p");
 
-        
+    houseDescrip.textContent = houses.Description;
+    divSingleHouse.appendChild(houseDescrip);
 
-        for (var i = 0; i < array.length; i++) {
-            var character = array[i];
-            
-            var charWithPhoto = document.createElement("div");
-            charWithPhoto.className = "charWithPhoto";
+    //permite receber o array de characters 
+    let array = await getCharacterByHouseID(houses.Id);
+    for (var i = 0; i < array.length; i++) {
+        var character = array[i];
 
-            var charPhoto = document.createElement("img");
-            charPhoto.className = "image";
-            charPhoto.src = character.Photo;
-            charWithPhoto.appendChild(charPhoto);
-
-            var middle = document.createElement("div");
-            middle.className = "middle";
-
-
-            var charName = document.createElement("text");
-            charName.className = "text";
-
-            charName.textContent = character.Name;
-            middle.appendChild(charName);
-
-            charWithPhoto.appendChild(middle);
-            divSingleHouse.appendChild(charWithPhoto);
-            
-            charPhoto.setAttribute('data-idChar', character.Id);
-            //funtion que vai abrir a role com os respectivos heroes
-            charPhoto.onclick = getId => {
-                var idChar = getId.target.getAttribute('data-idChar', character.Id);
-                screenSingleCharacter(idChar);
-                singleHouseToCharacter();
-            }
-            
-        }
-        
-    
-}
-
- function showCharacters(houses) {
-    for (var i = 0; i < houses.length; i++) {
-        var character = houses[i];
-
-        var divCharacter = document.getElementById("houseCharacters");
+        var charWithPhoto = document.createElement("div");
+        charWithPhoto.className = "charWithPhoto";
 
         var charPhoto = document.createElement("img");
+        charPhoto.className = "image";
         charPhoto.src = character.Photo;
-        divCharacter.appendChild(charPhoto);
-        
-        var charName = document.createElement("h5");
-        charName.textContent = character.Name;
-        divCharacter.appendChild(charName);
-        
-    }
-    
- }
+        charWithPhoto.appendChild(charPhoto);
 
+        var middle = document.createElement("div");
+        middle.className = "middle";
+
+        var charName = document.createElement("text");
+        charName.className = "text";
+
+        charName.textContent = character.Name;
+        middle.appendChild(charName);
+
+        charWithPhoto.appendChild(middle);
+        divSingleHouse.appendChild(charWithPhoto);
+
+        //função que permite abrir o div de uma personagem através do clique no nome desta
+        charName.setAttribute('data-idChar', character.Id);
+        charName.onclick = getId => {
+            var idChar = getId.target.getAttribute('data-idChar', character.Id);
+            screenSingleCharacter(idChar);
+            singleHouseToCharacter();
+        }
+
+        //função que permite abrir o div de uma personagem através do clique na fotografia desta
+        charPhoto.setAttribute('data-idChar', character.Id);
+        charPhoto.onclick = getId => {
+            var idChar = getId.target.getAttribute('data-idChar', character.Id);
+            screenSingleCharacter(idChar);
+            singleHouseToCharacter();
+        }
+
+    }
+
+
+}
+
+//função que apresenta a informação de uma só personagem
 function showSingleCharacter(charId) {
     var divSingleCharacter = document.getElementById("singleCharacter");
 
@@ -185,23 +172,13 @@ function showSingleCharacter(charId) {
     divSingleCharacter.appendChild(charVideo);
 
 
-    
-    }
+
+}
 
 function screenHouses() {
     return getHouses()
         .then(function (houses) {
             showHouses(houses);
-        })
-        .catch(function (erro) {
-            console.error(erro);
-        });
-}
-
-function screenCharacters(houseId) {
-    return getCharacters(houseId)
-        .then(function (houses) {
-            showCharacters(houses);
         })
         .catch(function (erro) {
             console.error(erro);

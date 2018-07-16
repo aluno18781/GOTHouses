@@ -23,7 +23,7 @@ namespace GOTHouses.Models
 
         public string Symbol { get; set; }
 
-        
+
 
         public virtual ICollection<Characters> CharactersList { get; set; }
 

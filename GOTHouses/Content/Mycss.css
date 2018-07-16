@@ -6,7 +6,6 @@
     max-width: inherit;
     background-image: url("https://cabanadoleitor.com.br/wp-content/uploads/2017/07/Game-of-Thrones-kdsngkf.jpg");
     background-size: cover;
-   
 }
 
 #houses {
@@ -14,8 +13,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-top:30px;
-    background-size:cover;
+    margin-top: 30px;
+    background-size: cover;
 }
 
 
@@ -36,10 +35,9 @@
 
 
 
-.navbar-brand > #logo{
+.navbar-brand > #logo {
     width: 300px;
-    margin-top:0px;
-    
+    margin-top: 0px;
 }
 
 .navbar-inverse {
@@ -51,25 +49,23 @@ h3 {
     color: white;
     font-family: Algerian;
     font-size: 27px;
-    
-    
 }
 
 
-.hide{
-    display:none !important ;
+.hide {
+    display: none !important;
 }
 
 .action-button {
     margin-top: 10px;
     font-size: 30px;
     font-family: Algerian;
-
 }
+
     .action-button:hover {
         -ms-transform: scale(1.05);
         transform: scale(1.05);
-        color:white;
+        color: white;
     }
 
 
@@ -83,15 +79,14 @@ h3 {
 
 
 .charWithPhoto {
-    position:relative;
-    margin-top:4%;
-    height:350px;
-    width:220px;
-
+    position: relative;
+    margin-top: 4%;
+    height: 350px;
+    width: 220px;
 }
 
 .image {
-    float:left;
+    float: left;
     opacity: 1;
     display: block;
     height: 100%;
@@ -100,6 +95,7 @@ h3 {
     backface-visibility: hidden;
     padding: 5px 5px 5px 5px;
 }
+
 .middle {
     transition: .5s ease;
     opacity: 0;
@@ -118,27 +114,28 @@ h3 {
     opacity: 1;
 }
 
-.text { 
+.text {
     color: white;
     font-size: 20px;
-    text-align:center;
+    text-align: center;
 }
 
 .divHouseSingle {
-    position:relative;
-    top:10%;
-    height:250px;
+    position: relative;
+    top: 10%;
+    height: 250px;
     text-align: left;
     margin: 8px 8px 8px 8px;
-    
 }
-.divHouseSingle > h3{
-    color:black;
-    font-size: 30px;
-}
-.divHouseSingle > .img-House{
-    height:100%
-}
+
+    .divHouseSingle > h3 {
+        color: black;
+        font-size: 30px;
+    }
+
+    .divHouseSingle > .img-House {
+        height: 100%
+    }
 
 p {
     margin-top: -11%;
@@ -152,33 +149,33 @@ p {
     max-height: max-content;
 }
 
-.singleCharWithPhoto{
+.singleCharWithPhoto {
     height: 350px;
-    width:240px;
+    width: 240px;
 }
 
-.singleCharWithPhoto > .singlePhoto{
-    height:100%;
-    width:100%;
-}
-
-.singleCharWithPhoto > h3{
-    color:black;
-    font-size:30px;
-}
-
-    #singleCharacter > p{
-        margin-top:-15%;
-        max-height:max-content; 
+    .singleCharWithPhoto > .singlePhoto {
+        height: 100%;
+        width: 100%;
     }
-    
-    
-    
-    iframe {
-        width: 600px;
-        height: 340px;
-        margin-left: 30%;
+
+    .singleCharWithPhoto > h3 {
+        color: black;
+        font-size: 30px;
     }
+
+#singleCharacter > p {
+    margin-top: -15%;
+    max-height: max-content;
+}
+
+
+
+iframe {
+    width: 600px;
+    height: 340px;
+    margin-left: 30%;
+}
 
 #singleCharacter {
     display: flex;
